@@ -1,4 +1,5 @@
-﻿using Ele.Utility;
+﻿using ChelseasFieldJournal.src;
+using Ele.Utility;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
@@ -24,6 +25,7 @@ namespace Ele.ChelseasFieldJournal
             base.Start(api);
             RegisterClasses(api);
             LogHelper.Log($"Starting up {Mod.Info.Name}...");
+            api.RegisterItemClass("ItemJournal", typeof(ItemJournal));
         }
 
         public override void AssetsFinalize(ICoreAPI api)

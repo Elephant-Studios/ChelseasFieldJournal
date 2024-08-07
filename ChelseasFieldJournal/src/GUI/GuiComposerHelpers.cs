@@ -27,6 +27,15 @@ namespace ChelseasFieldJournal.src.GUI
                 i++;
             }
         }
+        public static GuiComposer AddStaticImage(this GuiComposer composer, AssetLocation imageAsset, ElementBounds bounds, Operator blendMode = Operator.Over)
+        {
+            bool flag = !composer.Composed;
+            if (flag)
+            {
+                composer.AddStaticElement(new GuiElementImage(composer.Api, bounds, imageAsset, blendMode), null);
+            }
+            return composer;
+        }
 
         public static GuiComposer AddColorListPicker(this GuiComposer composer, int[] colors, Action<int> onToggle, ElementBounds startBounds, int maxLineWidth, string key = null)
         {
