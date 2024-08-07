@@ -1,0 +1,15 @@
+{
+    "Type": "code",
+    "ModID": "vsmodtemplate",
+    "Name": "VSModTemplate",
+    "Side": "Universal",
+    "Version": "0.0.0",
+    "Authors": [],
+    "Contributors": [],
+    "Description": "<Placeholder>",
+    "RequiredOnClient": true,
+    "RequiredOnServer": true,
+    "Dependencies": {
+        "game": ""
+    }
+}
