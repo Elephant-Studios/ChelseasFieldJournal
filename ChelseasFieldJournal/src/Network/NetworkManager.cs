@@ -1,4 +1,4 @@
-using static Ele.VSModTemplate.ModConstants;
+using static Ele.ChelseasFieldJournal.ModConstants;
 using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Server;
@@ -7,7 +7,7 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
-namespace Ele.VSModTemplate;
+namespace Ele.ChelseasFieldJournal;
 
 public class NetworkManager : ModSystem
 {

@@ -1,4 +1,4 @@
-﻿using static Ele.VSModTemplate.ModConstants;
+﻿using static Ele.ChelseasFieldJournal.ModConstants;
 using Vintagestory.API.Common;
 using System.IO;
 

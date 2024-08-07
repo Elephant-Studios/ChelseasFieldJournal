@@ -1,7 +1,7 @@
 {
     "Type": "code",
-    "ModID": "vsmodtemplate",
-    "Name": "VSModTemplate",
+    "ModID": "fieldjournal",
+    "Name": "ChelseasFieldJournal",
     "Side": "Universal",
     "Version": "0.0.0",
     "Authors": [],

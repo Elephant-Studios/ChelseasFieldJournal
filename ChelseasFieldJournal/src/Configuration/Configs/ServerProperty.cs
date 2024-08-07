@@ -1,9 +1,9 @@
-﻿using static Ele.VSModTemplate.ModConstants;
+﻿using static Ele.ChelseasFieldJournal.ModConstants;
 using Newtonsoft.Json;
 using Ele.Configuration;
 
 
-namespace Ele.VSModTemplate
+namespace Ele.ChelseasFieldJournal
 {
     public class ServerProperty : IModConfig
     {

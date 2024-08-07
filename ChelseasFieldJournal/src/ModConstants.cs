@@ -2,13 +2,13 @@ using System;
 using System.Text.RegularExpressions;
 using Vintagestory.API.Common;
 
-namespace Ele.VSModTemplate
+namespace Ele.ChelseasFieldJournal
 {
     public static class ModConstants
     {
-        internal const string MOD_NAME = "VSModTemplate"; //<--Cannot contain spaces
+        internal const string MOD_NAME = "ChelseasFieldJournal"; //<--Cannot contain spaces
         internal const string ORG_ID = "elephantstudios"; //<--Cannot contain spaces
-        internal static string MOD_ID;
+        internal static string MOD_ID = "fieldjournal";
         internal static string Display_Name;
         internal static string Harmony_ID;
 

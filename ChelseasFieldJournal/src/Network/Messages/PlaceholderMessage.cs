@@ -1,7 +1,7 @@
 using ProtoBuf;
 using Vintagestory.API.MathTools;
 
-namespace Ele.VSModTemplate;
+namespace Ele.ChelseasFieldJournal;
 
 public class PlaceholderMessage
 {
