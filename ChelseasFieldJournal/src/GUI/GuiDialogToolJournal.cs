@@ -21,8 +21,6 @@ namespace ChelseasFieldJournal
 
         public GuiDialogToolJournal(string DialogTitle, EntityPlayer playerIn, ICoreClientAPI capi) : base(DialogTitle, capi)
         {
-            this.leftPageNumber = 1;
-            this.rightPageNumber = 2;
             this.SetupDialogJournal();
             this.RunAllSetupDialogs();
             this.lastRedrawMs = this.capi.ElapsedMilliseconds;
@@ -35,23 +33,17 @@ namespace ChelseasFieldJournal
 
         private void SetupDialogJournal()
         {
-            double size4 = GuiElementPassiveItemSlot.unscaledSlotSize + GuiElementItemSlotGridBase.unscaledSlotPadding;
             ElementBounds BoundsMainBG = ElementBounds.Fixed(0.0, 0.0, 700.0, 400.0);
             ElementBounds bgBounds = ElementBounds.Fill.WithFixedPadding(0.0);
             bgBounds.BothSizing = ElementSizing.FitToChildren;
-            bgBounds.WithChildren(new ElementBounds[]
-            {
-                BoundsMainBG
-            });
+            bgBounds.WithChildren(new ElementBounds[] { BoundsMainBG });
             ElementBounds dialogBounds = ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle).WithFixedAlignmentOffset(0.0, 20.0);
-            int offsetx = 78;
             ElementBounds SpellbookImageBounds = ElementBounds.Fixed(0.0, 32.0, 700.0, 400.0);
-            ElementBounds LeftPageBounds = ElementBounds.Fixed((double)(158 + offsetx), 360.0, 32.0, 16.0);
-            ElementBounds RightPageBounds = ElementBounds.Fixed((double)(158 + offsetx + 217), 360.0, 32.0, 16.0);
             IGuiAPI gui = this.capi.Gui;
-            string str = "america";
-            this.Composers[str] = gui.CreateCompo(str, dialogBounds).AddShadedDialogBG(bgBounds.WithFixedSize(700.0, 20.0), true, 5.0, 0.75f).
-                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), SpellbookImageBounds, Operator.Over).EndIf().EndChildElements().Compose(true);
+            string str = "gui-dialog-journal";
+            this.Composers[str] = gui.CreateCompo(str, dialogBounds).AddShadedDialogBG(bgBounds.WithFixedSize(700.0, 400.0), true, 5.0, 0.75f).
+                AddDialogTitleBar(this.DialogTitle, new Action(this.OnTitleBarClose), CairoFont.WhiteSmallishText(), bgBounds).BeginChildElements(bgBounds).
+                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), SpellbookImageBounds, Operator.Over).EndChildElements().Compose(true);
             this.lastRedrawMs = this.capi.ElapsedMilliseconds;
         }
 

@@ -11,16 +11,24 @@ namespace ChelseasFieldJournal
     class ItemJournal : Item
     {
         public GuiDialogToolJournal dlg;
+        private ICoreClientAPI capi { get; set; }
 
+        public override void OnLoaded(ICoreAPI api)
+        {
+            base.OnLoaded(api);
+            this.capi = (api as ICoreClientAPI);
+        }
         public override void OnHeldIdle(ItemSlot slot, EntityAgent byEntity)
         {
             base.OnHeldIdle(slot, byEntity);
-            ICoreClientAPI capi = byEntity.World.Api as ICoreClientAPI;
+            
             GuiDialogToolJournal guiDialogToolJournal = this.dlg;
-            bool flag7 = guiDialogToolJournal == null || !guiDialogToolJournal.IsOpened();
-            if (flag7)
+            bool flag1 = guiDialogToolJournal == null || !guiDialogToolJournal.IsOpened();
+            bool flag2 = this.api.Side == EnumAppSide.Client;
+            if (flag1 && flag2)
             {
-                this.dlg = new GuiDialogToolJournal("america", (EntityPlayer)byEntity, capi);
+                ICoreClientAPI capi = byEntity.World.Api as ICoreClientAPI;
+                this.dlg = new GuiDialogToolJournal("gui-dialogs-journal", (EntityPlayer)byEntity, capi);
                 this.dlg.TryOpen();
                 this.dlg.OnClosed += delegate ()
                 {
