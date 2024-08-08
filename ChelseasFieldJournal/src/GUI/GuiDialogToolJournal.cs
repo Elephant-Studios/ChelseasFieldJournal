@@ -41,9 +41,12 @@ namespace ChelseasFieldJournal
             ElementBounds SpellbookImageBounds = ElementBounds.Fixed(0.0, 32.0, 700.0, 400.0);
             IGuiAPI gui = this.capi.Gui;
             string str = "gui-dialog-journal";
-            this.Composers[str] = gui.CreateCompo(str, dialogBounds).AddShadedDialogBG(bgBounds.WithFixedSize(700.0, 400.0), true, 5.0, 0.75f).
+            AssetLocation test = new AssetLocation("fieldjournal", "textures/dialogs/test.png");
+            this.Composers[str] = gui.CreateCompo(str, dialogBounds);
+            capi.Logger.Notification(Composers[str].Bounds.ToString());
+            /*.AddShadedDialogBG(bgBounds.WithFixedSize(700.0, 400.0), true, 5.0, 0.75f).
                 AddDialogTitleBar(this.DialogTitle, new Action(this.OnTitleBarClose), CairoFont.WhiteSmallishText(), bgBounds).BeginChildElements(bgBounds).
-                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), SpellbookImageBounds, Operator.Over).EndChildElements().Compose(true);
+                AddStaticImage(test, SpellbookImageBounds, Operator.Over).EndChildElements().Compose(true);*/
             this.lastRedrawMs = this.capi.ElapsedMilliseconds;
         }
 
