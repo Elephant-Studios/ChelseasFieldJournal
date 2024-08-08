@@ -1,5 +1,5 @@
 {
-  "code": "journal",
+  "code": "ItemJournal",
   "class": "ItemJournal",
   "texture": {
     "base": "item/journal"

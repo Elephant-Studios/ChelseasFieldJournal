@@ -5,7 +5,7 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 
-namespace ChelseasFieldJournal.src.GUI
+namespace ChelseasFieldJournal
 {
     public class GuiElementImage : GuiElementTextBase
     {

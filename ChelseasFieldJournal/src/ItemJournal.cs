@@ -7,16 +7,16 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
-using ChelseasFieldJournal.src.GUI;
 
-namespace ChelseasFieldJournal.src
+namespace ChelseasFieldJournal
 {
     class ItemJournal : Item
     {
         public GuiDialogToolJournal dlg;
-        public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
+
+        public override void OnHeldIdle(ItemSlot slot, EntityAgent byEntity)
         {
-            
+            base.OnHeldIdle(slot, byEntity);
             ICoreClientAPI capi = byEntity.World.Api as ICoreClientAPI;
             GuiDialogToolJournal guiDialogToolJournal = this.dlg;
             bool flag7 = guiDialogToolJournal == null || !guiDialogToolJournal.IsOpened();
@@ -28,10 +28,8 @@ namespace ChelseasFieldJournal.src
                 {
                     byEntity = null;
                 };
-                handling = EnumHandHandling.NotHandled;
                 return;
             }
-                        handling = EnumHandHandling.NotHandled;
         }
         public override bool OnHeldInteractCancel(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, EnumItemUseCancelReason cancelReason)
         {   

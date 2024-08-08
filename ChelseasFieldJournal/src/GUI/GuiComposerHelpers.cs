@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 
-namespace ChelseasFieldJournal.src.GUI
+namespace ChelseasFieldJournal
 {
     public static class GuiComposerHelpers
     {

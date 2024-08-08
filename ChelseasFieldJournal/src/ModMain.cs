@@ -1,4 +1,5 @@
-﻿using ChelseasFieldJournal.src;
+﻿
+using ChelseasFieldJournal;
 using Ele.Utility;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;

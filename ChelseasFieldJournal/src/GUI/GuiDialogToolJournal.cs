@@ -9,7 +9,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 
-namespace ChelseasFieldJournal.src.GUI
+namespace ChelseasFieldJournal
 {
     public class GuiDialogToolJournal : GuiDialogGeneric
     {
@@ -46,10 +46,6 @@ namespace ChelseasFieldJournal.src.GUI
             ElementBounds dialogBounds = ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle).WithFixedAlignmentOffset(0.0, 20.0);
             int offsetx = 78;
             ElementBounds SpellbookImageBounds = ElementBounds.Fixed(0.0, 32.0, 700.0, 400.0);
-            ElementBounds SpellbookTab1ImageBounds = ElementBounds.Fixed(0.0, 108.0, 105.0, 28.0);
-            ElementBounds SpellbookTab2ImageBounds = ElementBounds.Fixed(0.0, 140.0, 105.0, 28.0);
-            ElementBounds SpellbookTab3ImageBounds = ElementBounds.Fixed(0.0, 172.0, 105.0, 28.0);
-            ElementBounds SpellbookTab4ImageBounds = ElementBounds.Fixed(0.0, 204.0, 105.0, 28.0);
             ElementBounds LeftPageBounds = ElementBounds.Fixed((double)(158 + offsetx), 360.0, 32.0, 16.0);
             ElementBounds RightPageBounds = ElementBounds.Fixed((double)(158 + offsetx + 217), 360.0, 32.0, 16.0);
             IGuiAPI gui = this.capi.Gui;
