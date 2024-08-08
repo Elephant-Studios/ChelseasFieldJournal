@@ -194,9 +194,9 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <None Remove="assets\fieldjournal\dialogs\test.png" />
-        <None Remove="assets\itemtypes\journal.json" />
-        <None Remove="assets\shapes\item\journal.json" />
-        <None Remove="assets\textures\item\journal.png" />
+        <None Remove="assets\fieldjournal\itemtypes\journal.json" />
+        <None Remove="assets\fieldjournal\shapes\item\journal.json" />
+        <None Remove="assets\fieldjournal\textures\item\journal.png" />
         <Content Include="modinfo.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
