@@ -21,13 +21,8 @@ namespace ChelseasFieldJournal
         public override void OnHeldIdle(ItemSlot slot, EntityAgent byEntity)
         {
             base.OnHeldIdle(slot, byEntity);
-            
-            GuiDialogToolJournal guiDialogToolJournal = this.dlg;
-            bool flag1 = guiDialogToolJournal == null || !guiDialogToolJournal.IsOpened();
-            bool flag2 = this.api.Side == EnumAppSide.Client;
-            if (flag1 && flag2)
+            if (this.api.Side == EnumAppSide.Client)
             {
-                ICoreClientAPI capi = byEntity.World.Api as ICoreClientAPI;
                 this.dlg = new GuiDialogToolJournal("gui-dialogs-journal", (EntityPlayer)byEntity, capi);
                 this.dlg.TryOpen();
                 this.dlg.OnClosed += delegate ()
