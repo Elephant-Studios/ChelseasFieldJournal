@@ -38,13 +38,13 @@ namespace ChelseasFieldJournal
         {
             ElementBounds dialogBounds = ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle);//.WithFixedAlignmentOffset(0.0, 20.0);
             ElementBounds JournalBlankBounds = ElementBounds.Fixed(0.0, 0.0, 1091, 700);
-            ElementBounds TestIconBounds = ElementBounds.Fixed(650.0, 100.0, 256.0, 128.0);
+            ElementBounds TestIconBounds = ElementBounds.Fixed(650.0, 100.0, 256.0, 196.0);
             ElementBounds ItemStackIconBounds = ElementBounds.Fixed(200.0, 200.0, 256.0, 256.0);
             ElementBounds childBounds = new ElementBounds().WithSizing(ElementSizing.FitToChildren);
             IGuiAPI gui = this.capi.Gui;
             string str = "gui-dialog-journal";
             AssetLocation test = new AssetLocation("fieldjournal", "textures/dialogs/test.png");
-            RichTextComponentBase[] richStack = new RichTextComponentBase[] { new ItemstackTextComponent(capi, capi.World.Player.Entity.LeftHandItemSlot.Itemstack, 48.0) };
+            RichTextComponentBase[] richStack = new RichTextComponentBase[] { new ItemstackTextComponent(capi, capi.World.Player.Entity.LeftHandItemSlot.Itemstack, 128.0) };
             this.Composers[str] = gui.CreateCompo(str, dialogBounds).BeginChildElements(childBounds).
                 AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), JournalBlankBounds, Operator.Over).
                 AddStaticImage(new AssetLocation("fieldjournal", "dialogs/1.png"), TestIconBounds, Operator.Atop).
@@ -94,7 +94,6 @@ namespace ChelseasFieldJournal
             base.OnRenderGUI(deltaTime);
         }
 
-        // Token: 0x04000F43 RID: 3907
         private long lastRedrawMs;
     }
 }

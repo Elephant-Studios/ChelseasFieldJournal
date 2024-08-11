@@ -29,7 +29,6 @@ namespace ChelseasFieldJournal
                 {
                     byEntity = null;
                 };
-                return;
             }
         }
         public override bool OnHeldInteractCancel(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, EnumItemUseCancelReason cancelReason)

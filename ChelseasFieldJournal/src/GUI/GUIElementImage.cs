@@ -27,8 +27,6 @@ namespace ChelseasFieldJournal
 
         public override void ComposeElements(Context context, ImageSurface originalSurface)
         {
-            //base.ComposeElements(context, originalSurface);
-            //Font.SetupContext(context);
             Bounds.CalcWorldBounds();
             ComposeTextElements(context, originalSurface);
             context.Save();
