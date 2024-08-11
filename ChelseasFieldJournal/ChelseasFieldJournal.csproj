@@ -193,6 +193,7 @@
         <Content Include="assets\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <None Remove="assets\fieldjournal\textures\dialogs\1.png" />
         <None Remove="assets\fieldjournal\textures\dialogs\test.png" />
         <None Remove="assets\fieldjournal\itemtypes\journal.json" />
         <None Remove="assets\fieldjournal\shapes\item\journal.json" />

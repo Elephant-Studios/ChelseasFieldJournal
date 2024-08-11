@@ -1,6 +1,8 @@
 ﻿using Cairo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,78 +31,64 @@ namespace ChelseasFieldJournal
         private void RunAllSetupDialogs()
         {
             //this.SetupDialogDiscoveredEntries();
+            
         }
 
         private void SetupDialogJournal()
         {
-            //ElementBounds BoundsMainBG = ElementBounds.Fixed(0.0, 0.0, 276, 180);
-            //ElementBounds bgBounds = ElementBounds.Fill.WithFixedPadding(0.0);
-            //bgBounds.BothSizing = ElementSizing.FitToChildren;
-            //bgBounds.WithChildren(new ElementBounds[] { BoundsMainBG });
-            ElementBounds dialogBounds = ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle).WithFixedAlignmentOffset(0.0, 20.0);
-            ElementBounds JournalBlankBounds = ElementBounds.Fixed(0.0, 0.0, 276.0, 148.0);
+            ElementBounds dialogBounds = ElementStdBounds.AutosizedMainDialog.WithAlignment(EnumDialogArea.CenterMiddle);//.WithFixedAlignmentOffset(0.0, 20.0);
+            ElementBounds JournalBlankBounds = ElementBounds.Fixed(0.0, 0.0, 1091, 700);
+            ElementBounds TestIconBounds = ElementBounds.Fixed(650.0, 100.0, 256.0, 128.0);
+            ElementBounds ItemStackIconBounds = ElementBounds.Fixed(200.0, 200.0, 256.0, 256.0);
+            ElementBounds childBounds = new ElementBounds().WithSizing(ElementSizing.FitToChildren);
             IGuiAPI gui = this.capi.Gui;
             string str = "gui-dialog-journal";
             AssetLocation test = new AssetLocation("fieldjournal", "textures/dialogs/test.png");
-            Console.WriteLine(test.Valid + " ");
-            //Console.WriteLine("                aaaaaaaaaaaa" + JournalBlankBounds.absFixedX + JournalBlankBounds.ToString());
-            this.Composers[str] = gui.CreateCompo(str, dialogBounds).
-                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), JournalBlankBounds, Operator.Over)
-                .Compose(true);
+            RichTextComponentBase[] richStack = new RichTextComponentBase[] { new ItemstackTextComponent(capi, capi.World.Player.Entity.LeftHandItemSlot.Itemstack, 48.0) };
+            this.Composers[str] = gui.CreateCompo(str, dialogBounds).BeginChildElements(childBounds).
+                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/test.png"), JournalBlankBounds, Operator.Over).
+                AddStaticImage(new AssetLocation("fieldjournal", "dialogs/1.png"), TestIconBounds, Operator.Atop).
+                AddRichtext(richStack, ItemStackIconBounds).
+                EndChildElements().
+                Compose(true);
             this.lastRedrawMs = this.capi.ElapsedMilliseconds;
         }
-        public override void Dispose()
-        {
-
-        }
-        // Token: 0x06000BFB RID: 3067 RVA: 0x000B9FF1 File Offset: 0x000B81F1
         private void onDrawIconPrev(Context ctx, ImageSurface surface, ElementBounds currentBounds)
         {
             this.capi.Gui.Icons.Drawleft_svg(ctx, 0, 0, 42f, 42f, GuiStyle.DialogDefaultTextColor);
         }
 
-        // Token: 0x06000BFC RID: 3068 RVA: 0x000BA01C File Offset: 0x000B821C
         private void onDrawIconNext(Context ctx, ImageSurface surface, ElementBounds currentBounds)
         {
             this.capi.Gui.Icons.Drawright_svg(ctx, 0, 0, 42f, 42f, GuiStyle.DialogDefaultTextColor);
         }
 
-
-        // Token: 0x06000C0E RID: 3086 RVA: 0x000BA696 File Offset: 0x000B8896
         public override void OnGuiOpened()
         {
             base.OnGuiOpened();
             this.RunAllSetupDialogs();
         }
 
-        // Token: 0x06000C0F RID: 3087 RVA: 0x000BA6A7 File Offset: 0x000B88A7
         public override void OnGuiClosed()
         {
             base.OnGuiClosed();
         }
 
-        // Token: 0x06000C10 RID: 3088 RVA: 0x000BA6B4 File Offset: 0x000B88B4
         public override bool TryClose()
         {
             return base.TryClose();
         }
 
-        // Token: 0x06000C11 RID: 3089 RVA: 0x000BA6CC File Offset: 0x000B88CC
         public override bool TryOpen()
         {
             return base.TryOpen();
         }
 
-        // Token: 0x06000C12 RID: 3090 RVA: 0x000BA6E4 File Offset: 0x000B88E4
         private void OnTitleBarClose()
         {
             this.TryClose();
         }
 
-        // Token: 0x170002CE RID: 718
-        // (get) Token: 0x06000C13 RID: 3091 RVA: 0x000BA6F0 File Offset: 0x000B88F0
-
-        // Token: 0x06000C14 RID: 3092 RVA: 0x000BA703 File Offset: 0x000B8903
         public override void OnRenderGUI(float deltaTime)
         {
             base.OnRenderGUI(deltaTime);
