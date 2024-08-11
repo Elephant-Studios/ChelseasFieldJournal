@@ -30,10 +30,10 @@ namespace ChelseasFieldJournal
         public static GuiComposer AddStaticImage(this GuiComposer composer, AssetLocation imageAsset, ElementBounds bounds, Operator blendMode = Operator.Over)
         {
             bool flag = !composer.Composed;
-            //if (flag)
-            
+            if (flag)
+            {
                 composer.AddStaticElement(new GuiElementImage(composer.Api, bounds, imageAsset, blendMode), null);
-            
+            }
             return composer;
         }
 

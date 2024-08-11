@@ -1,6 +1,7 @@
 ﻿using Cairo;
 using Ele.ChelseasFieldJournal;
 using Ele.Utility;
+using SkiaSharp;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
@@ -24,8 +25,12 @@ namespace ChelseasFieldJournal
             ((GuiElement)this).RenderAsPremultipliedAlpha = true;
         }
 
-        public virtual void ComposeElements(Context context, ImageSurface originalSurface)
+        public override void ComposeElements(Context context, ImageSurface originalSurface)
         {
+            //base.ComposeElements(context, originalSurface);
+            //Font.SetupContext(context);
+            Bounds.CalcWorldBounds();
+            ComposeTextElements(context, originalSurface);
             context.Save();
             Operator @operator = context.Operator;
             context.Operator = this._blendMode;
