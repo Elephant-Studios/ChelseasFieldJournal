@@ -1,12 +1,11 @@
 ﻿using Cairo;
-using Ele.ChelseasFieldJournal;
 using Ele.Utility;
 using SkiaSharp;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 
-namespace ChelseasFieldJournal
+namespace Ele.ChelseasFieldJournal
 {
     public class GuiElementImage : GuiElementTextBase
     {
