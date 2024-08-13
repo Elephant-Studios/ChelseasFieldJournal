@@ -31,7 +31,7 @@ namespace Ele.ChelseasFieldJournal
             context.Save();
             Operator @operator = context.Operator;
             context.Operator = this._blendMode;
-            using ImageSurface surfaceFromAsset = GuiElement.getImageSurfaceFromAsset(this.api, this._imageAsset, (int)byte.MaxValue);
+            ImageSurface surfaceFromAsset = GuiElement.getImageSurfaceFromAsset(this.api, this._imageAsset, (int)byte.MaxValue);
             double num1 = ((GuiElement)this).Bounds.OuterWidth / (double)surfaceFromAsset.Width;
             double num2 = ((GuiElement)this).Bounds.OuterHeight / (double)surfaceFromAsset.Height;
             context.SetSourceRGBA(0.0, 0.0, 0.0, 0.0);
