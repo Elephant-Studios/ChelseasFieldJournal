@@ -11,6 +11,7 @@ namespace Ele.ChelseasFieldJournal
         internal const string MOD_NAME = "ChelseasFieldJournal"; //<--Cannot contain spaces
         internal const string ORG_ID = "elephantstudios"; //<--Cannot contain spaces
         internal static string MOD_ID = "fieldjournal";
+        internal static string ASSETDOMAIN = "fieldjournal:textures/dialogs/";
         internal static string Display_Name;
         internal static string Harmony_ID;
 
@@ -21,6 +22,14 @@ namespace Ele.ChelseasFieldJournal
         internal const string Client_Config_Name = "Client-Settings";
         internal const string Default_Server_Config = "Server-Properties";
 
+        public static List<TitlePageEntry> JournalTitleEntries = new List<TitlePageEntry>();
+        public static List<PageEntry> JournalPageEntries = new List<PageEntry>();
+        public static List<OreEntry> JournalOreEntries = new List<OreEntry>();
+        public static List<FaunaEntry> JournalFaunaEntries = new List<FaunaEntry>();
+        public static List<FloraEntry> JournalFloraEntries = new List<FloraEntry>();
+        public static List<CookingEntry> JournalCookingEntries = new List<CookingEntry>();
+        public static List<ConstructEntry> JournalConstructEntries = new List<ConstructEntry>();
+
         internal static void Init(ModInfo modInfo)
         {
             MOD_ID = modInfo.ModID;
@@ -29,7 +38,7 @@ namespace Ele.ChelseasFieldJournal
 
             Main_Channel = $"{MOD_ID}:main";
             Config_Channel = $"{MOD_ID}:config";
-            InitializeJournalEntries();
+            //InitializeJournalEntries();
         }
 
         public class EventIDs
@@ -114,13 +123,6 @@ namespace Ele.ChelseasFieldJournal
 
         public static void InitializeJournalEntries()
         {
-            List<TitlePageEntry> JournalTitleEntries = new List<TitlePageEntry>();
-            List<PageEntry> JournalPageEntries = new List<PageEntry>();
-            List<OreEntry> JournalOreEntries = new List<OreEntry>();
-            List<FaunaEntry> JournalFaunaEntries = new List<FaunaEntry>();
-            List<FloraEntry> JournalFloraEntries = new List<FloraEntry>();
-            List<CookingEntry> JournalCookingEntries = new List<CookingEntry>();
-            List<ConstructEntry> JournalConstructEntries = new List<ConstructEntry>();
             //TITLES
             JournalTitleEntries.Add(new TitlePageEntry() {
                 MainTitle = "Title",
