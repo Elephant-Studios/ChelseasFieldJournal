@@ -21,15 +21,14 @@ namespace Ele.ChelseasFieldJournal
             base.OnLoaded(api);
             this.capi = (api as ICoreClientAPI);
         }
-
-        public override void OnHeldIdle(ItemSlot slot, EntityAgent byEntity)
+        public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             if (this.api.Side == EnumAppSide.Client)
             {
                 this.dlg = new GuiDialogToolJournal(JournalString, (EntityPlayer)byEntity, capi);
                 this.dlg.TryOpen();
             }
-            base.OnHeldIdle(slot, byEntity);
+            base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
         }
 
         public override bool OnHeldInteractCancel(float secondsUsed, ItemSlot slot,

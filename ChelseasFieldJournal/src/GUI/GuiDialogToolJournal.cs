@@ -43,10 +43,20 @@ namespace Ele.ChelseasFieldJournal
             base.SingleComposer = gui.CreateCompo(dialogId, dialogBounds).BeginChildElements(childBounds).
                 AddStaticImage(new AssetLocation(MOD_ID + ":" + "textures/dialogs/test.png"), JournalBlankBounds, Operator.Over).
                 AddStaticImage(new AssetLocation(MOD_ID + ":" + "textures/dialogs/1.png"), TestIconBounds, Operator.Atop).
-                AddRichtext(richStack, ItemStackIconBounds).
+                AddRichtext(richStack, ItemStackIconBounds).//AddIf(leftPageNumber == 0).
+                AddButton("", new ActionConsumable(this.OnRightPage), ElementBounds.Fixed(0.0, 108.0, 105.0, 28.0)).
+                EndIf().
                 EndChildElements();
 
             base.SingleComposer.Compose(true);
+        }
+
+        private bool OnRightPage()
+        {
+            Console.WriteLine(1);
+            rightPageNumber++;
+            this.SetupDialogJournal();
+            return true;
         }
     }
 }
