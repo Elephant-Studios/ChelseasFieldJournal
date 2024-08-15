@@ -33,7 +33,7 @@ namespace Ele.ChelseasFieldJournal
             this.SetupDialogJournal();
             if (leftPageNumber < 1) { leftPageNumber = 1; }
             if (rightPageNumber < 1) { rightPageNumber = 1; }
-            InitializeJournalEntries();
+            //InitializeJournalEntries();
             //if (ChapterPage < 1) { ChapterPage = 1; }
         }
 
@@ -47,57 +47,41 @@ namespace Ele.ChelseasFieldJournal
             ElementBounds ItemStackIconBounds = ElementBounds.Fixed(200.0, 200.0, 256.0, 256.0);
             ElementBounds childBounds = new ElementBounds().WithSizing(ElementSizing.FitToChildren);
 
-            TitlePageEntry currentChapterPage = JournalTitleEntries[Chapter];
-            switch(leftPageNumber)
-            {
-                case 2:
-                    Chapter = 0;
-                    break;
-                case 3:
-                    Chapter = 1;
-                    break;
-                case 4:
-                    Chapter = 2;
-                    break;
-                case 5:
-                    Chapter = 3;
-                    break;
-                case 6:
-                    Chapter = 4;
-                    break;
-                case 7:
-                    Chapter = 5;
-                    break;
-            }
+            //TitlePageEntry currentChapterPage = JournalTitleEntries[Chapter];
+            Console.WriteLine("title Entries:" + JournalTitleEntries.Count);
+            Console.WriteLine("page Entries:" + JournalPageEntries.Count);
+            Console.WriteLine("Fauna Entries:" + JournalFaunaEntries.Count);
+            Console.WriteLine("Flora Entries:" + JournalFloraEntries.Count);
+            Console.WriteLine("Cooking Entries:" + JournalCookingEntries.Count);
+            Console.WriteLine("Construct Entries:" + JournalConstructEntries.Count);
 
-            switch(Chapter)
-            {
-                case 0:
-                    currentLeftPage = JournalPageEntries[ChapterLeftPage];
-                    currentRightPage = JournalPageEntries[ChapterLeftPage + 1];
-                    break;
-                case 1:
-                    currentLeftPage = JournalOreEntries[ChapterLeftPage];
-                    currentRightPage = JournalOreEntries[ChapterLeftPage + 1];
-                    break;
-                case 2:
-                    currentLeftPage = JournalFaunaEntries[ChapterLeftPage];
-                    currentRightPage = JournalFaunaEntries[ChapterLeftPage + 1];
-                    break;
-                case 3:
-                    currentLeftPage = JournalFloraEntries[ChapterLeftPage];
-                    currentRightPage = JournalFloraEntries[ChapterLeftPage + 1];
-                    break;
-                case 4:
-                    currentLeftPage = JournalCookingEntries[ChapterLeftPage];
-                    currentRightPage = JournalCookingEntries[ChapterLeftPage + 1];
-                    break;
-                case 5:
-                    currentLeftPage = JournalConstructEntries[ChapterLeftPage];
-                    currentRightPage = JournalConstructEntries[ChapterLeftPage + 1];
-                    break;
-            }
-            
+                // Array of lists containing all your journal entries
+                var journalChapters = new List<object>[] {
+                JournalPageEntries.Cast<object>().ToList(),
+                JournalOreEntries.Cast<object>().ToList(),
+                JournalFaunaEntries.Cast<object>().ToList(),
+                JournalFloraEntries.Cast<object>().ToList(),
+                JournalCookingEntries.Cast<object>().ToList(),
+                JournalConstructEntries.Cast<object>().ToList()
+            };
+
+                if (Chapter >= 0 && Chapter < journalChapters.Length)
+                {
+                    var Entry = journalChapters[Chapter];
+                    if (ChapterLeftPage < Entry.Count)
+                    {
+                        currentLeftPage = Entry[ChapterLeftPage];
+                        currentRightPage = (ChapterLeftPage + 1 < Entry.Count) ? Entry[ChapterLeftPage + 1] : null;
+                    }
+                    else if (Chapter + 1 < journalChapters.Length)
+                    {
+                        Chapter++;
+                        ChapterLeftPage = 0;
+                        currentLeftPage = Entry[ChapterLeftPage];
+                        currentRightPage = (ChapterLeftPage + 1 < Entry.Count) ? Entry[ChapterLeftPage + 1] : null;
+                    }
+                }
+
             RichTextComponentBase[] richStack = new RichTextComponentBase[] { new ItemstackTextComponent(capi, capi.World.Player.Entity.LeftHandItemSlot.Itemstack, 128.0) };
 
             base.SingleComposer = gui.CreateCompo(dialogId, dialogBounds).BeginChildElements(childBounds).
@@ -113,7 +97,7 @@ namespace Ele.ChelseasFieldJournal
                 AddStaticText(this.rightPageNumber.ToString(), CairoFont.WhiteMediumText().WithWeight(FontWeight.Normal).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(1000.0, 50.0, 50.0, 50.0), null).
 
                 //Chapter Titles
-                AddIf(Chapter > JournalTitleEntries.Count - 1).
+                AddIf(Chapter < JournalTitleEntries.Count && ChapterLeftPage == 0).
                 AddStaticTextAutoFontSize(JournalTitleEntries[Chapter].MainTitle, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(1000.0, 50.0, 300.0, 300.0)).
                 EndIf().
 
@@ -121,15 +105,16 @@ namespace Ele.ChelseasFieldJournal
                 AddIf(ChapterLeftPage > 0).
                 
                 //Page Entry
-                AddIf(currentLeftPage is PageEntry).AddIf(((PageEntry)currentLeftPage).Title != null && ((PageEntry)currentLeftPage).MainText != null).
+                AddIf(currentLeftPage is PageEntry).
+                //AddIf(((PageEntry)currentLeftPage).Title != null && ((PageEntry)currentLeftPage).MainText != null).
                 AddStaticTextAutoFontSize(((PageEntry)currentLeftPage).Title, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(300.0, 50.0, 300.0, 300.0)).
                 AddStaticTextAutoFontSize(((PageEntry)currentLeftPage).MainText, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(100.0, 400.0, 300.0, 300.0)).
                 AddIf(((PageEntry)currentLeftPage).ImageSpecialText != null).
                 AddStaticTextAutoFontSize(((PageEntry)currentLeftPage).ImageSpecialText, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(500.0, 50.0, 300.0, 300.0)).
                 AddIf(((CookingEntry)currentLeftPage).Step2 != null).
                 AddStaticImage(new AssetLocation(ASSETDOMAIN + ((PageEntry)currentLeftPage).ImagePath), TestIconBounds, Operator.Atop).
-                EndIf().EndIf().EndIf().EndIf().
-
+                EndIf().EndIf().EndIf().
+                /*
                 //Ore Entry
                 AddIf(currentLeftPage is OreEntry).AddIf(((OreEntry)currentLeftPage).Title != null && ((OreEntry)currentLeftPage).Uses != null).
                 AddStaticTextAutoFontSize(((OreEntry)currentLeftPage).Title, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(300.0, 50.0, 300.0, 300.0)).
@@ -186,7 +171,8 @@ namespace Ele.ChelseasFieldJournal
                 AddIf(((CookingEntry)currentLeftPage).Step2 != null).
                 AddStaticImage(new AssetLocation(ASSETDOMAIN + ((ConstructEntry)currentLeftPage).ImagePath), TestIconBounds, Operator.Atop).
                 EndIf().
-
+                */
+                EndIf().
                 EndChildElements();
 
             base.SingleComposer.Compose(true);

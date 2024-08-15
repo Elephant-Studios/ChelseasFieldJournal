@@ -38,7 +38,7 @@ namespace Ele.ChelseasFieldJournal
 
             Main_Channel = $"{MOD_ID}:main";
             Config_Channel = $"{MOD_ID}:config";
-            //InitializeJournalEntries();
+            InitializeJournalEntries();
         }
 
         public class EventIDs
@@ -123,6 +123,7 @@ namespace Ele.ChelseasFieldJournal
 
         public static void InitializeJournalEntries()
         {
+            Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBEEEEEEEEEEEEEEEEEEEEP");
             //TITLES
             JournalTitleEntries.Add(new TitlePageEntry() {
                 MainTitle = "Title",
@@ -135,7 +136,7 @@ namespace Ele.ChelseasFieldJournal
                 MainText = "MainText",
                 ImageSpecialText = "ImageSpecialText",
                 Tags = new string[] { "Advice"},
-                ImagePath = "textures/dialogs/1"
+                ImagePath = "1"
             });
             //ORES
             JournalOreEntries.Add(new OreEntry() { 
@@ -145,7 +146,7 @@ namespace Ele.ChelseasFieldJournal
                 Depth = "DepthRange", 
                 Properties = new string[] { "SmeltingPoint", "RockType", "VeinShape", "Special1", "Special2", "Special3" }, 
                 Tags = new string[] { "Ore", "AlphabeticalName", "RockType", "MetalStrength" }, 
-                ImagePath = "textures/dialogs/1" 
+                ImagePath = "1"
             });
             //FAUNA
             JournalFaunaEntries.Add(new FaunaEntry() {
@@ -154,7 +155,7 @@ namespace Ele.ChelseasFieldJournal
                 Habitat = "Habitat",
                 Harvestables = new string[] { "Harvestables", "Harvestables", "Harvestables" },
                 Tags = new string[] { "Fauna", "AlphabeticalName", "Habitat", "Size" },
-                ImagePath = "textures/dialogs/1"
+                ImagePath = "1"
             });
             //FLORA
             JournalFloraEntries.Add(new FloraEntry() {
@@ -165,7 +166,7 @@ namespace Ele.ChelseasFieldJournal
                 SpecialNote = "SpecialNote",
                 Properties = new string[] { "Habitat", "GrowthCycleLength", "Nutrient", "SunExposure", "Perennial Type", "Temp Range", "Satiety Quality Low" },
                 Tags = new string[] { "Flora", "Habitat", "Type" },
-                ImagePath = "textures/dialogs/1"
+                ImagePath = "1"
             });
             //COOKING
             JournalCookingEntries.Add(new CookingEntry() {
@@ -179,7 +180,7 @@ namespace Ele.ChelseasFieldJournal
                 Step2 = "Baking",
                 Step2Body = "Cook for 30 minutes",
                 Tags = new string[] { "Cooking", "DishType", "Time", "Strength" },
-                ImagePath = "textures/dialogs/1"
+                ImagePath = "1"
             });
             //CONSTRUCT
             JournalConstructEntries.Add(new ConstructEntry()
@@ -188,7 +189,7 @@ namespace Ele.ChelseasFieldJournal
                 MainText = "MainTextTest",
                 Materials = "MaterialsTest",
                 Tags = new string[] { "Construct", "Type" },
-                ImagePath = "textures/dialogs/1"
+                ImagePath = "1"
             });
         }
     }
