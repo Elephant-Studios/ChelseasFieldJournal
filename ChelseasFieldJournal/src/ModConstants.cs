@@ -23,7 +23,7 @@ namespace Ele.ChelseasFieldJournal
         internal const string Default_Server_Config = "Server-Properties";
 
         public static List<TitlePageEntry> JournalTitleEntries = new List<TitlePageEntry>();
-        public static List<PageEntry> JournalPageEntries = new List<PageEntry>();
+        public static List<TextEntry> JournalTextEntries = new List<TextEntry>();
         public static List<OreEntry> JournalOreEntries = new List<OreEntry>();
         public static List<FaunaEntry> JournalFaunaEntries = new List<FaunaEntry>();
         public static List<FloraEntry> JournalFloraEntries = new List<FloraEntry>();
@@ -55,7 +55,7 @@ namespace Ele.ChelseasFieldJournal
             public string Category;
         }
 
-        public struct PageEntry
+        public struct TextEntry
         {
             public string Title;
             public string MainText;
@@ -126,13 +126,43 @@ namespace Ele.ChelseasFieldJournal
             Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBEEEEEEEEEEEEEEEEEEEEP");
             //TITLES
             JournalTitleEntries.Add(new TitlePageEntry() {
-                MainTitle = "Title",
+                MainTitle = "Advice",
+                Subtitle = "Subtitle",
+                Category = "CategoryTest",
+            });
+            JournalTitleEntries.Add(new TitlePageEntry()
+            {
+                MainTitle = "Ores",
+                Subtitle = "Subtitle",
+                Category = "CategoryTest",
+            });
+            JournalTitleEntries.Add(new TitlePageEntry()
+            {
+                MainTitle = "Fauna",
+                Subtitle = "Subtitle",
+                Category = "CategoryTest",
+            });
+            JournalTitleEntries.Add(new TitlePageEntry()
+            {
+                MainTitle = "Flora",
+                Subtitle = "Subtitle",
+                Category = "CategoryTest",
+            });
+            JournalTitleEntries.Add(new TitlePageEntry()
+            {
+                MainTitle = "Cooking",
+                Subtitle = "Subtitle",
+                Category = "CategoryTest",
+            });
+            JournalTitleEntries.Add(new TitlePageEntry()
+            {
+                MainTitle = "Constructs",
                 Subtitle = "Subtitle",
                 Category = "CategoryTest",
             });
             //ADVICE
-            JournalPageEntries.Add(new PageEntry() {
-                Title = "Title",
+            JournalTextEntries.Add(new TextEntry() {
+                Title = "TextTitle",
                 MainText = "MainText",
                 ImageSpecialText = "ImageSpecialText",
                 Tags = new string[] { "Advice"},
