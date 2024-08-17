@@ -160,6 +160,7 @@ namespace Ele.ChelseasFieldJournal
                 Subtitle = "Subtitle",
                 Category = "CategoryTest",
             });
+
             //ADVICE
             JournalTextEntries.Add(new TextEntry() {
                 Title = "TextTitle",
@@ -168,6 +169,15 @@ namespace Ele.ChelseasFieldJournal
                 Tags = new string[] { "Advice"},
                 ImagePath = "1"
             });
+            JournalTextEntries.Add(new TextEntry()
+            {
+                Title = "TextTitle2",
+                MainText = "MainText",
+                ImageSpecialText = "ImageSpecialText",
+                Tags = new string[] { "Advice" },
+                ImagePath = "1"
+            });
+
             //ORES
             JournalOreEntries.Add(new OreEntry() { 
                 Title = "OreTest", 
@@ -178,6 +188,17 @@ namespace Ele.ChelseasFieldJournal
                 Tags = new string[] { "Ore", "AlphabeticalName", "RockType", "MetalStrength" }, 
                 ImagePath = "1"
             });
+            JournalOreEntries.Add(new OreEntry()
+            {
+                Title = "OreTest2",
+                Formula = "OreFormula",
+                Uses = "OreUses",
+                Depth = "DepthRange",
+                Properties = new string[] { "SmeltingPoint", "RockType", "VeinShape", "Special1", "Special2", "Special3" },
+                Tags = new string[] { "Ore", "AlphabeticalName", "RockType", "MetalStrength" },
+                ImagePath = "1"
+            });
+
             //FAUNA
             JournalFaunaEntries.Add(new FaunaEntry() {
                 Title = "FaunaTest",
@@ -187,6 +208,16 @@ namespace Ele.ChelseasFieldJournal
                 Tags = new string[] { "Fauna", "AlphabeticalName", "Habitat", "Size" },
                 ImagePath = "1"
             });
+            JournalFaunaEntries.Add(new FaunaEntry()
+            {
+                Title = "FaunaTest2",
+                LatinName = "LatinName",
+                Habitat = "Habitat",
+                Harvestables = new string[] { "Harvestables", "Harvestables", "Harvestables" },
+                Tags = new string[] { "Fauna", "AlphabeticalName", "Habitat", "Size" },
+                ImagePath = "1"
+            });
+
             //FLORA
             JournalFloraEntries.Add(new FloraEntry() {
                 Title = "FloraTest",
@@ -198,6 +229,18 @@ namespace Ele.ChelseasFieldJournal
                 Tags = new string[] { "Flora", "Habitat", "Type" },
                 ImagePath = "1"
             });
+            JournalFloraEntries.Add(new FloraEntry()
+            {
+                Title = "FloraTest2",
+                LatinName = "LatinName",
+                Uses = "Uses",
+                Notes = "NoteTest",
+                SpecialNote = "SpecialNote",
+                Properties = new string[] { "Habitat", "GrowthCycleLength", "Nutrient", "SunExposure", "Perennial Type", "Temp Range", "Satiety Quality Low" },
+                Tags = new string[] { "Flora", "Habitat", "Type" },
+                ImagePath = "1"
+            });
+
             //COOKING
             JournalCookingEntries.Add(new CookingEntry() {
                 Title = "CookingTest",
@@ -212,10 +255,33 @@ namespace Ele.ChelseasFieldJournal
                 Tags = new string[] { "Cooking", "DishType", "Time", "Strength" },
                 ImagePath = "1"
             });
+            JournalCookingEntries.Add(new CookingEntry()
+            {
+                Title = "CookingTest2",
+                PrepTime = 20,
+                MachineList = new string[] { "Machine", "Machine", "Machine" },
+                Ingredients = new string[] { "Ingredient", "Ingredient" },
+                Yield = "-2 Pieces",
+                Step1 = "Preparation",
+                Step1Body = "Chop Finely",
+                Step2 = "Baking",
+                Step2Body = "Cook for 30 minutes",
+                Tags = new string[] { "Cooking", "DishType", "Time", "Strength" },
+                ImagePath = "1"
+            });
+
             //CONSTRUCT
             JournalConstructEntries.Add(new ConstructEntry()
             {
                 Title = "ConstructTest",
+                MainText = "MainTextTest",
+                Materials = "MaterialsTest",
+                Tags = new string[] { "Construct", "Type" },
+                ImagePath = "1"
+            });
+            JournalConstructEntries.Add(new ConstructEntry()
+            {
+                Title = "ConstructTest2",
                 MainText = "MainTextTest",
                 Materials = "MaterialsTest",
                 Tags = new string[] { "Construct", "Type" },
