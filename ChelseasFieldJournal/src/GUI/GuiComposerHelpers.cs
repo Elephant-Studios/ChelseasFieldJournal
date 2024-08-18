@@ -8,6 +8,7 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using static Ele.ChelseasFieldJournal.ModConstants;
+using static Ele.ChelseasFieldJournal.JournalEntryManager;
 
 namespace Ele.ChelseasFieldJournal
 {
@@ -25,7 +26,7 @@ namespace Ele.ChelseasFieldJournal
 
         public static GuiComposer AddLeftPage(this GuiComposer composer, Object leftPage)
         {
-            if (!composer.Composed && leftPage != null)
+            if (!composer.Composed && leftPage != null && leftPage is IPageEntry)
             {
                 if (leftPage is TextEntry leftTextEntry && leftTextEntry.Title != null && leftTextEntry.MainText != null)
                 {
@@ -45,7 +46,7 @@ namespace Ele.ChelseasFieldJournal
                     composer.AddStaticText(leftOreEntry.Depth, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(300.0, 400.0, 300.0, 300.0));
                     if (leftOreEntry.Formula != null)
                     {
-                        composer.AddStaticText(leftOreEntry.Formula, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(100, 50.0, 300.0, 300.0));
+                        composer.AddStaticText(leftOreEntry.Formula, CairoFont.WhiteMediumText().WithWeight(FontWeight.Bold).WithColor(ColorUtil.BlackArgbDouble), ElementBounds.Fixed(500.0, 50.0, 300.0, 300.0));
                     }
                     composer.AddStaticImage(new AssetLocation(ASSETDOMAIN + leftOreEntry.ImagePath + ".png"), ElementBounds.Fixed(300.0, 100.0, 256.0, 196.0), Operator.Atop);
                 }
@@ -95,7 +96,7 @@ namespace Ele.ChelseasFieldJournal
 
         public static GuiComposer AddRightPage(this GuiComposer composer, Object rightPage)
         {
-            if (!composer.Composed && rightPage != null)
+            if (!composer.Composed && rightPage != null && rightPage is IPageEntry)
             {
                 if (rightPage is TextEntry rightTextEntry && rightTextEntry.Title != null && rightTextEntry.MainText != null)
                 {
