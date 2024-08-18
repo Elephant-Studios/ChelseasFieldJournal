@@ -1,11 +1,12 @@
 {
-  "Mod-Title": "VS Mod Template",
-  "Config-Title.Client": "VS Mod Template (Client)",
+  "Mod-Title": "Chelsea's Field Journal'",
+  "Config-Title.Client": "Chelsea's Field Journal (Client)",
   "Config-Title.Server": "Server Properties - ",
 
   "Config-Setting.Title": "Core Settings",
   "Config-Setting.Title.Client": "Client Settings",
   "Config-Setting.Is_Enabled": "Enable Config",
+  "item-journal": "testjournal",
 
-  "Server-Property.Title": "Server Properties",
+  "Server-Property.Title": "Server Properties"
 }

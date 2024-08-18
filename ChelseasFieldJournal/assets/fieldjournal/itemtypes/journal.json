@@ -1,0 +1,14 @@
+{
+  "code": "ItemJournal",
+  "class": "ItemJournal",
+  "texture": {
+    "base": "item/journal"
+  },
+  "shape": {
+    "base":  "item/journal"
+  },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ]
+  }
+}

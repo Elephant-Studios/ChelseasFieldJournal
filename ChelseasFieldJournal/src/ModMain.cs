@@ -14,16 +14,17 @@ namespace Ele.ChelseasFieldJournal
         public override double ExecuteOrder() => 0.01;
         public override void StartPre(ICoreAPI api)
         {
-            base.StartPre(api);
             InitHelpers(this);
+            base.StartPre(api);
         }
 
         public override void Start(ICoreAPI api)
         {
             _api = api;
-            base.Start(api);
             RegisterClasses(api);
             LogHelper.Log($"Starting up {Mod.Info.Name}...");
+            api.RegisterItemClass("ItemJournal", typeof(ItemJournal));
+            base.Start(api);
         }
 
         public override void AssetsFinalize(ICoreAPI api)
